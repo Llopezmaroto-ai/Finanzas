@@ -76,27 +76,21 @@ npm run preview
 
 ## Publicar en GitHub Pages
 
-La app está preparada para publicarse desde este repositorio con Vite usando `base: '/Finanzas/'`.
+La app está preparada para publicarse desde este repositorio con Vite usando `base: '/Finanzas/'`. El workflow usa `npm ci`, ejecuta `npm run build` y publica la carpeta `dist/` en GitHub Pages.
 
 ### Activar GitHub Pages
 
 1. Sube los cambios a GitHub.
 2. En el repositorio, abre **Settings → Pages**.
 3. En **Build and deployment**, selecciona **Source: GitHub Actions**.
-4. Ejecuta el workflow **Deploy to GitHub Pages** manualmente desde **Actions**, o espera a que se ejecute al hacer push a `work` o `main`.
+4. Ejecuta el workflow **Deploy to GitHub Pages** manualmente desde **Actions**, o espera a que se ejecute al hacer push a `main`.
 
 ### Abrir la app publicada
 
 Cuando termine el workflow, la app estará disponible en:
 
 ```text
-https://<tu-usuario-o-organizacion>.github.io/Finanzas/
-```
-
-Sustituye `<tu-usuario-o-organizacion>` por el propietario real del repositorio. Por ejemplo, si el repositorio pertenece a `miusuario`, la URL será:
-
-```text
-https://miusuario.github.io/Finanzas/
+https://llopezmaroto-ai.github.io/Finanzas/
 ```
 
 > Importante: GitHub Pages sirve archivos estáticos. Los datos seguirán siendo privados y locales porque se guardan en IndexedDB del navegador con el que abras esa URL. Si abres la app desde otro navegador, perfil o dispositivo, importa tu copia JSON.
