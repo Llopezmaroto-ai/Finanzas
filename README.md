@@ -1,8 +1,11 @@
 # Finanzas personales locales
 
-Aplicación web privada para gestionar finanzas, ahorro e inversiones personales mes a mes. Está pensada para una persona particular, no para contabilidad profesional.
+Aplicación web privada para gestionar finanzas, ahorro e inversiones personales mes a mes. Está pensada para una persona particular, no para contabilidad profesional. El repositorio solo incluye datos ficticios de demostración.
 
 ## Características principales
+
+> Nota de privacidad del repositorio: los datos semilla usan entidades, identificadores, productos, importes y objetivos ficticios. Sustitúyelos por tus propios datos únicamente en tu navegador o en copias privadas que no subas al repositorio.
+
 
 - **React + Vite + TypeScript** con estructura por componentes, servicios, tipos y utilidades.
 - **Datos locales en IndexedDB**: la información queda guardada en el navegador.
@@ -18,7 +21,7 @@ Aplicación web privada para gestionar finanzas, ahorro e inversiones personales
 - **Informes mensuales y anuales**.
 - **Exportación e importación JSON** para copias de seguridad.
 - **Exportación CSV** para hoja de cálculo.
-- **Datos de ejemplo realistas** que se pueden borrar o restaurar desde Configuración.
+- **Datos de ejemplo ficticios** que se pueden borrar o restaurar desde Configuración; no representan importes, entidades, productos ni estrategias reales.
 
 ## Fórmulas incluidas
 
@@ -111,7 +114,7 @@ https://miusuario.github.io/Finanzas/
 2. Pulsa **Exportar CSV**.
 3. El archivo incluye secciones para movimientos, productos, seguimiento mensual y objetivos.
 
-## Borrar datos de ejemplo
+## Borrar datos de ejemplo ficticios
 
 1. Entra en **Configuración**.
 2. Pulsa **Borrar datos de ejemplo y registros**.
@@ -133,6 +136,7 @@ La app usa IndexedDB del navegador. Esto significa que los datos viven en el dis
 
 ### Privacidad
 
+- El repositorio no contiene entidades financieras reales, ISIN reales, importes personales ni estrategias financieras personales en los datos semilla.
 - La app no incluye llamadas `fetch`, endpoints remotos ni analítica.
 - `index.html` incluye una política CSP restrictiva para limitar conexiones, scripts, formularios y objetos externos.
 - Los datos se guardan en IndexedDB del navegador; exporta copias JSON periódicas si vas a limpiar datos del navegador o cambiar de equipo.

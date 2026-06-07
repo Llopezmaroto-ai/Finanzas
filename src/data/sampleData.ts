@@ -12,64 +12,64 @@ export const createInitialData = (): AppData => {
     { id: 'cat-formacion', name: 'Formación', subcategories: [{ id: 'sub-cursos', name: 'Cursos' }] },
     { id: 'cat-viajes', name: 'Viajes', subcategories: [{ id: 'sub-hoteles', name: 'Hoteles' }] },
     { id: 'cat-suscripciones', name: 'Suscripciones', subcategories: [{ id: 'sub-streaming', name: 'Streaming' }] },
-    { id: 'cat-ahorro', name: 'Ahorro', subcategories: [{ id: 'sub-colchon', name: 'Colchón' }] },
+    { id: 'cat-ahorro', name: 'Ahorro', subcategories: [{ id: 'sub-reserva', name: 'Reserva' }] },
     { id: 'cat-inversion', name: 'Inversión', subcategories: [{ id: 'sub-fondos', name: 'Fondos' }, { id: 'sub-etf', name: 'ETF' }] },
     { id: 'cat-otros', name: 'Otros', subcategories: [{ id: 'sub-varios', name: 'Varios' }] },
   ];
 
   const products: FinancialProduct[] = [
-    { id: 'prod-ing', name: 'ING', type: 'cuenta_remunerada', entity: 'ING', risk: 'bajo', goal: 'colchon_seguridad', initialCapital: 4200, comment: 'Cuenta diaria y fondo de emergencia.' },
-    { id: 'prod-groupama', name: 'Groupama Trésorerie', type: 'fondo_monetario', entity: 'MyInvestor', identifier: 'FR0000989626', risk: 'bajo', goal: 'ahorro_conservador', initialCapital: 2500, comment: 'Ahorro conservador de baja volatilidad.' },
-    { id: 'prod-indie', name: 'Fondo Indie de MyInvestor', type: 'fondo_indexado', entity: 'MyInvestor', risk: 'medio', goal: 'inversion_largo_plazo', initialCapital: 1800, comment: 'Cartera indexada diversificada.' },
-    { id: 'prod-fidelity-world', name: 'Fidelity MSCI World Index Fund P-ACC-EUR', type: 'fondo_indexado', entity: 'Fidelity', identifier: 'IE00BYX5NX33', risk: 'alto', goal: 'inversion_largo_plazo', initialCapital: 3200, comment: 'Exposición global desarrollada.' },
+    { id: 'prod-demo-cash', name: 'Cuenta Demo A', type: 'cuenta_remunerada', entity: 'Entidad Ficticia A', identifier: 'DEMO-CASH-001', risk: 'bajo', goal: 'colchon_seguridad', initialCapital: 1000, comment: 'Producto ficticio para mostrar efectivo o reserva.' },
+    { id: 'prod-demo-monetary', name: 'Producto Demo B', type: 'fondo_monetario', entity: 'Entidad Ficticia B', identifier: 'DEMO-MON-002', risk: 'bajo', goal: 'ahorro_conservador', initialCapital: 750, comment: 'Producto ficticio para pruebas de seguimiento.' },
+    { id: 'prod-demo-index', name: 'Producto Demo C', type: 'fondo_indexado', entity: 'Entidad Ficticia C', identifier: 'DEMO-IDX-003', risk: 'medio', goal: 'inversion_largo_plazo', initialCapital: 600, comment: 'Producto ficticio para pruebas de seguimiento.' },
+    { id: 'prod-demo-global', name: 'Producto Demo D', type: 'etf', entity: 'Entidad Ficticia D', identifier: 'DEMO-ETF-004', risk: 'alto', goal: 'inversion_largo_plazo', initialCapital: 900, comment: 'Producto ficticio para pruebas de seguimiento.' },
   ];
 
   const movementBase = [
-    [2026, 1, 2450, 910, 450], [2026, 2, 2450, 980, 500], [2026, 3, 2490, 1040, 550],
-    [2026, 4, 2490, 930, 550], [2026, 5, 2520, 1120, 600], [2026, 6, 2520, 1015, 600],
+    [2026, 1, 1200, 420, 120], [2026, 2, 1200, 440, 130], [2026, 3, 1250, 460, 140],
+    [2026, 4, 1250, 430, 140], [2026, 5, 1300, 480, 150], [2026, 6, 1300, 450, 150],
   ];
   const movements: Movement[] = movementBase.flatMap(([year, month, income, housing, invest]) => [
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-01`, month, year, concept: 'Nómina', amount: income, type: 'ingreso', categoryId: 'cat-otros', subcategoryId: 'sub-varios', accountOrProductId: 'prod-ing' },
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-03`, month, year, concept: 'Vivienda y suministros', amount: housing, type: 'gasto', categoryId: 'cat-vivienda', subcategoryId: 'sub-alquiler' },
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-08`, month, year, concept: 'Supermercado mensual', amount: 310 + month * 4, type: 'gasto', categoryId: 'cat-alimentacion', subcategoryId: 'sub-supermercado' },
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-12`, month, year, concept: 'Ocio y restaurantes', amount: 165 + month * 7, type: 'gasto', categoryId: 'cat-ocio', subcategoryId: 'sub-eventos' },
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-15`, month, year, concept: 'Aportación inversión mensual', amount: invest, type: 'aportacion_inversion', categoryId: 'cat-inversion', subcategoryId: 'sub-fondos', accountOrProductId: month % 2 === 0 ? 'prod-fidelity-world' : 'prod-indie', comment: 'No computa como gasto real.' },
-    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-20`, month, year, concept: 'Traspaso a ahorro conservador', amount: 250, type: 'traspaso', categoryId: 'cat-ahorro', subcategoryId: 'sub-colchon', accountOrProductId: 'prod-groupama', comment: 'Traspaso interno, no altera patrimonio.' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-01`, month, year, concept: 'Ingreso ficticio mensual', amount: income, type: 'ingreso', categoryId: 'cat-otros', subcategoryId: 'sub-varios', accountOrProductId: 'prod-demo-cash' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-03`, month, year, concept: 'Gasto ficticio de vivienda', amount: housing, type: 'gasto', categoryId: 'cat-vivienda', subcategoryId: 'sub-alquiler' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-08`, month, year, concept: 'Compra ficticia de alimentación', amount: 160 + month * 3, type: 'gasto', categoryId: 'cat-alimentacion', subcategoryId: 'sub-supermercado' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-12`, month, year, concept: 'Ocio ficticio', amount: 70 + month * 4, type: 'gasto', categoryId: 'cat-ocio', subcategoryId: 'sub-eventos' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-15`, month, year, concept: 'Aportación ficticia a inversión', amount: invest, type: 'aportacion_inversion', categoryId: 'cat-inversion', subcategoryId: 'sub-fondos', accountOrProductId: month % 2 === 0 ? 'prod-demo-global' : 'prod-demo-index', comment: 'Dato ficticio; no computa como gasto real.' },
+    { id: uid('mov'), date: `${year}-${String(month).padStart(2, '0')}-20`, month, year, concept: 'Traspaso ficticio entre productos', amount: 80, type: 'traspaso', categoryId: 'cat-ahorro', subcategoryId: 'sub-reserva', accountOrProductId: 'prod-demo-monetary', comment: 'Dato ficticio; traspaso interno que no altera patrimonio.' },
   ] as Movement[]);
 
   const monthlyRecords: MonthlyProductRecord[] = products.flatMap((product, idx) =>
     [1, 2, 3, 4, 5, 6].map((month) => {
-      const contribution = product.goal === 'inversion_largo_plazo' ? (idx === 2 ? 275 : 325) : idx === 1 ? 250 : 0;
+      const contribution = product.goal === 'inversion_largo_plazo' ? (idx === 2 ? 70 : 80) : idx === 1 ? 60 : 0;
       const totalContributed = product.initialCapital + contribution * month;
-      const performance = product.risk === 'alto' ? 0.012 : product.risk === 'medio' ? 0.007 : 0.0025;
+      const performance = product.risk === 'alto' ? 0.009 : product.risk === 'medio' ? 0.005 : 0.0015;
       const marketValue = Math.round(totalContributed * (1 + performance * month));
       const returnEuro = marketValue - totalContributed;
       return {
         id: uid('rec'), productId: product.id, month, year: 2026, monthlyContribution: contribution,
         monthlyWithdrawal: 0, totalContributed, marketValue, returnEuro,
         returnPercentage: totalContributed === 0 ? 0 : (returnEuro / totalContributed) * 100,
-        comment: 'Dato de ejemplo editable.',
+        comment: 'Dato ficticio editable.',
       };
     }),
   );
 
   const groups: CustomGroup[] = [
-    { id: 'grp-fijos', name: 'Gastos fijos', type: 'categoria', itemIds: ['cat-vivienda', 'cat-suscripciones'] },
-    { id: 'grp-variables', name: 'Gastos variables', type: 'categoria', itemIds: ['cat-alimentacion', 'cat-transporte', 'cat-ocio'] },
-    { id: 'grp-emergencia', name: 'Fondo de emergencia', type: 'producto', itemIds: ['prod-ing', 'prod-groupama'] },
-    { id: 'grp-largo-plazo', name: 'Inversión a largo plazo', type: 'producto', itemIds: ['prod-indie', 'prod-fidelity-world'] },
+    { id: 'grp-fijos', name: 'Grupo demo: gastos fijos', type: 'categoria', itemIds: ['cat-vivienda', 'cat-suscripciones'] },
+    { id: 'grp-variables', name: 'Grupo demo: gastos variables', type: 'categoria', itemIds: ['cat-alimentacion', 'cat-transporte', 'cat-ocio'] },
+    { id: 'grp-reserva', name: 'Grupo demo: reserva', type: 'producto', itemIds: ['prod-demo-cash', 'prod-demo-monetary'] },
+    { id: 'grp-inversion', name: 'Grupo demo: productos C y D', type: 'producto', itemIds: ['prod-demo-index', 'prod-demo-global'] },
   ];
 
   const goals: Goal[] = [
-    { id: 'goal-ahorro', name: 'Ahorro mensual objetivo', type: 'ahorro_mensual', amount: 800, enabled: true },
-    { id: 'goal-inversion', name: 'Inversión mensual objetivo', type: 'inversion_mensual', amount: 600, enabled: true },
-    { id: 'goal-alimentacion', name: 'Límite alimentación', type: 'limite_categoria', amount: 420, categoryId: 'cat-alimentacion', enabled: true },
-    { id: 'goal-emergencia', name: 'Fondo de emergencia mínimo', type: 'fondo_emergencia', amount: 9000, enabled: true },
-    { id: 'goal-patrimonio', name: 'Patrimonio objetivo', type: 'patrimonio', amount: 25000, enabled: true },
+    { id: 'goal-ahorro', name: 'Objetivo demo de ahorro mensual', type: 'ahorro_mensual', amount: 300, enabled: true },
+    { id: 'goal-inversion', name: 'Objetivo demo de aportación mensual', type: 'inversion_mensual', amount: 150, enabled: true },
+    { id: 'goal-alimentacion', name: 'Límite demo de alimentación', type: 'limite_categoria', amount: 220, categoryId: 'cat-alimentacion', enabled: true },
+    { id: 'goal-reserva', name: 'Objetivo demo de reserva mínima', type: 'fondo_emergencia', amount: 1800, enabled: true },
+    { id: 'goal-patrimonio', name: 'Objetivo demo de patrimonio', type: 'patrimonio', amount: 5000, enabled: true },
   ];
 
   return {
     movements, categories, products, monthlyRecords, groups, goals,
-    settings: { selectedMonth: 6, selectedYear: 2026, sampleDataLoaded: true, emergencyFundProductIds: ['prod-ing', 'prod-groupama'], maxProductWeightPercentage: 45 },
+    settings: { selectedMonth: 6, selectedYear: 2026, sampleDataLoaded: true, emergencyFundProductIds: ['prod-demo-cash', 'prod-demo-monetary'], maxProductWeightPercentage: 45 },
   };
 };
