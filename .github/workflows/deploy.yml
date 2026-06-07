@@ -27,11 +27,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: |
-          npm ci || {
-            echo "::warning::npm ci failed; falling back to npm install to keep the Pages deployment unblocked."
-            npm install
-          }
+        run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build

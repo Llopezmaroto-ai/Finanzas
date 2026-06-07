@@ -76,7 +76,7 @@ npm run preview
 
 ## Publicar en GitHub Pages
 
-La app está preparada para publicarse desde este repositorio con Vite usando `base: '/Finanzas/'`. El workflow intenta instalar con `npm ci`, usa `npm install` como respaldo si el lockfile no puede resolverse, ejecuta `npm run build` y publica la carpeta `dist/` en GitHub Pages.
+La app está preparada para publicarse desde este repositorio con Vite usando `base: '/Finanzas/'`. El workflow usa `npm install --no-audit --no-fund` para evitar fallos por `package-lock.json` desincronizado, ejecuta `npm run build` y publica la carpeta `dist/` en GitHub Pages.
 
 ### Activar GitHub Pages
 
