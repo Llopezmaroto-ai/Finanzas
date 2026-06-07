@@ -7,7 +7,7 @@ Aplicación web privada para gestionar finanzas, ahorro e inversiones personales
 > Nota de privacidad del repositorio: los datos semilla usan entidades, identificadores, productos, importes y objetivos ficticios. Sustitúyelos por tus propios datos únicamente en tu navegador o en copias privadas que no subas al repositorio.
 
 
-- **React + Vite + TypeScript** con estructura por componentes, servicios, tipos y utilidades.
+- **TypeScript con estructura inspirada en React + Vite** con estructura por componentes, servicios, tipos y utilidades.
 - **Datos locales en IndexedDB**: la información queda guardada en el navegador.
 - **Sin backend y sin envíos externos**: no hay API remota ni servidor de datos.
 - **Dashboard visual** con tarjetas, comparativas y gráficos CSS/SVG sencillos.
@@ -53,7 +53,7 @@ npm install
 npm run dev
 ```
 
-Abre la URL que muestre Vite, normalmente:
+Abre la URL que muestra el servidor local, normalmente:
 
 ```text
 http://localhost:5173/Finanzas/
@@ -76,7 +76,7 @@ npm run preview
 
 ## Publicar en GitHub Pages
 
-La app está preparada para publicarse desde este repositorio con Vite usando `base: '/Finanzas/'`. El workflow usa `npm install --no-audit --no-fund` para evitar fallos por `package-lock.json` desincronizado, ejecuta `npm run build` y publica la carpeta `dist/` en GitHub Pages.
+La app está preparada para publicarse desde este repositorio usando el prefijo público `/Finanzas/`. El workflow usa `npm install --no-audit --no-fund` para evitar fallos por `package-lock.json` desincronizado, ejecuta `npm run build` y publica la carpeta `dist/` en GitHub Pages.
 
 ### Activar GitHub Pages
 
