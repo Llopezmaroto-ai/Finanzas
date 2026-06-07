@@ -101,6 +101,25 @@ https://miusuario.github.io/Finanzas/
 
 > Importante: GitHub Pages sirve archivos estáticos. Los datos seguirán siendo privados y locales porque se guardan en IndexedDB del navegador con el que abras esa URL. Si abres la app desde otro navegador, perfil o dispositivo, importa tu copia JSON.
 
+
+## Persistencia de datos
+
+- Todos los datos financieros de la app se guardan exclusivamente en **IndexedDB** del navegador, dentro de la base local `finanzas-personales-db` y el almacén `app-state`.
+- Esto incluye movimientos, categorías, subcategorías, productos financieros, seguimientos mensuales, agrupaciones, objetivos y configuración financiera.
+- La app **no usa `localStorage` ni `sessionStorage`** para datos financieros. Si en el futuro se añaden preferencias visuales no sensibles, como tema claro/oscuro o filtros temporales, podrían guardarse fuera de IndexedDB, pero nunca importes, productos, movimientos ni objetivos.
+- IndexedDB pertenece al navegador, perfil y dispositivo desde el que abras la app. Si borras datos del navegador, cambias de perfil o usas otro dispositivo, necesitarás una copia JSON para restaurar tu información.
+
+### Copia de seguridad
+
+Para guardar una copia manual:
+
+1. Abre **Importar/exportar datos**.
+2. Pulsa **Exportar copia JSON**.
+3. Guarda el archivo en un lugar privado y seguro.
+4. Para restaurarlo, vuelve a **Importar/exportar datos**, pulsa **Importar JSON** y selecciona el archivo.
+
+También puedes usar **Exportar CSV** para analizar los datos en una hoja de cálculo, pero el CSV no sustituye a la copia JSON completa.
+
 ## Exportar e importar copia de seguridad
 
 1. Entra en **Importar/exportar datos**.
